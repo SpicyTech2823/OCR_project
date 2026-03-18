@@ -4,12 +4,20 @@ import pytesseract
 from docx import Document
 from io import BytesIO
 
-# Configure Tesseract path if needed (Windows)
+# Configure Tesseract path
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-st.set_page_config(page_title="Khmer OCR", layout="wide")
-st.title(" Khmer OCR - Extract Text from Images")
-st.markdown("Upload an image containing Khmer text, then extract and download as Word document.")
+# Page configuration (logo shown in browser tab and title bar)
+st.set_page_config(
+    page_title="Khmer OCR",
+    page_icon="images/khmerOCR_logo.png",   
+    layout="wide",
+)
+
+# Header
+st.image("images/khmerOCR_logo.png", width=100)
+st.title(":blue[Khmer OCR - Extract Text from Images]", text_alignment="center")
+st.markdown("Upload an image containing Khmer text, then extract and download as Word document.", text_alignment="center")
 
 # Initialize session state for extracted text
 if "ocr_text" not in st.session_state:
